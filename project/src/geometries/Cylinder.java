@@ -8,7 +8,7 @@ import Primitives.Vector;
  * basic geometric object for Cylinder
  */
 public class Cylinder extends Tube{
-    double height;
+    final double height;
 
     /**
      * @param axisRay Ray axisRay
@@ -17,7 +17,7 @@ public class Cylinder extends Tube{
      */
     public Cylinder(Ray axisRay, double radius, double height) {
         super(axisRay, radius);
-        this.height = height;
+       this.height = height;
     }
 
     public double getHeight() {
@@ -26,6 +26,6 @@ public class Cylinder extends Tube{
 
     @Override
     public Vector getNormal(Point3D p) {
-        return null;
+        return super.getNormal(p);
     }
 }

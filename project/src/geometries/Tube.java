@@ -8,8 +8,8 @@ import Primitives.Vector;
  * basic geometric object for Sphere
  */
 public class Tube implements Geometry{
-    Ray axisRay;
-    double radius;
+    final Ray axisRay;
+    final double radius;
 
     /**
      *
@@ -31,6 +31,13 @@ public class Tube implements Geometry{
 
     @Override
     public Vector getNormal(Point3D p) {
-        return null;
+        Vector p_p0  = p.subtract(axisRay.getP0());
+        double t = axisRay.getDir().dotProduct(p_p0);
+
+        Point3D o = axisRay.getP0().add(p_p0.scale(t));
+        Vector N = p.subtract(o);
+
+        N.normalize();
+        return N;
     }
 }

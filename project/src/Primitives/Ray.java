@@ -3,8 +3,8 @@ package Primitives;
 import java.util.Objects;
 
 public class Ray {
-    Point3D p0;
-    Vector dir;
+    final Point3D p0;
+    final Vector dir;
 
     public Ray(Point3D p0, Vector dir) {
         this.dir = dir.normalized();

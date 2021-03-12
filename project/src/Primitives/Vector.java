@@ -1,5 +1,6 @@
 package Primitives;
 
+import javax.naming.OperationNotSupportedException;
 import java.awt.color.ICC_ColorSpace;
 import java.util.Objects;
 
@@ -68,8 +69,8 @@ public class Vector {
      */
     public Vector subtract(Vector v) {
         return new Vector(head.x.coord - v.head.x.coord,
-                head.y.coord + v.head.y.coord,
-                head.z.coord + v.head.z.coord);
+                head.y.coord - v.head.y.coord,
+                head.z.coord - v.head.z.coord);
     }
 
     /**
@@ -91,33 +92,37 @@ public class Vector {
                 head.z.coord * v.head.z.coord);
     }
 
-    public Vector crossProduct(Vector v) {
-        return new Vector(
+    public Vector crossProduct(Vector v)  {
+        Point3D newhead = new Point3D(
                 (head.y.coord * v.head.z.coord) - (head.z.coord * v.head.y.coord),
                 (head.z.coord * v.head.x.coord) - (head.x.coord * v.head.z.coord),
                 (head.x.coord * v.head.y.coord) - (head.y.coord * v.head.x.coord));
+        if (newhead.equals(ZERO)){
+            throw new IllegalArgumentException("cross product resulting Zero point head");
+        }
+        return new Vector(newhead);
     }
 
-    public double lengthSquared(){
-        return ((head.x.coord * head.x.coord) + (head.y.coord * head.y.coord) +  (head.z.coord* head.z.coord));
+    public double lengthSquared() {
+        return ((head.x.coord * head.x.coord) + (head.y.coord * head.y.coord) + (head.z.coord * head.z.coord));
     }
 
     public double length() {
         return Math.sqrt(lengthSquared());
     }
 
-    public Vector normalize(){
+    public Vector normalize() {
         double x = head.x.coord;
         double y = head.y.coord;
         double z = head.z.coord;
         double l = this.length();
 
-        this.head = new Point3D(x/l,y/l,z/l);
+        this.head = new Point3D(x / l, y / l, z / l);
         return this;
     }
 
-    public Vector normalized(){
-        return new Vector (this.normalize().head);
+    public Vector normalized() {
+        return new Vector(this.normalize().head);
     }
 
     @Override
