@@ -6,7 +6,12 @@ import static Primitives.Util.*;
 /**
  * Test program for the 1st stage
  *
- * @author Dan Zilberstein
+ * @author Segev Efrati
+ * i.d. 312468226
+ * Email segev0301@gamil.com
+ * @author Shilo Efrati
+ * i.d. 211802434
+ * Email shiloefrati@gmail.com
  */
 public final class Main {
 
