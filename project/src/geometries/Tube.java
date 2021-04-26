@@ -4,12 +4,13 @@ import Primitives.Point3D;
 import Primitives.Ray;
 import Primitives.Vector;
 
+import java.util.List;
+
 /**
  * basic geometric object for Sphere
  */
-public class Tube implements Geometry{
+public class Tube extends RadialGeometry implements Geometry{
     final Ray axisRay;
-    final double radius;
 
     /**
      *
@@ -17,16 +18,20 @@ public class Tube implements Geometry{
      * @param radius double
      */
     public Tube(Ray axisRay, double radius) {
+        super(radius);
         this.axisRay = axisRay;
-        this.radius = radius;
     }
 
     public Ray getAxisRay() {
         return axisRay;
     }
 
-    public double getRadius() {
-        return radius;
+    @Override
+    public String toString() {
+        return "Tube{" +
+                "axisRay=" + axisRay +
+                ", radius=" + radius +
+                '}';
     }
 
     @Override
@@ -39,5 +44,10 @@ public class Tube implements Geometry{
 
         N.normalize();
         return N;
+    }
+
+    @Override
+    public List<Point3D> findIntersections(Ray ray) {
+        return null;
     }
 }

@@ -90,4 +90,8 @@ public class Point3D {
                           y.coord - p.y.coord,
                           z.coord - p.z.coord);
     }
+
+    public double getX() {
+        return x.coord;
+    }
 }

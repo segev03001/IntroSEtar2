@@ -3,7 +3,7 @@ package geometries;
 import Primitives.Vector;
 import Primitives.Point3D;
 
-public interface Geometry {
+public interface Geometry extends Intersectable {
     /**
      * calculate the normal
      * @param p point
