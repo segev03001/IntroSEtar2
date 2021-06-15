@@ -1,5 +1,6 @@
 package Primitives;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Ray {
@@ -22,6 +23,21 @@ public class Ray {
     public Point3D getPoint(double t)
     {
         return p0.add(dir.scale(t));
+    }
+
+    public Point3D getClosestPoint(List<Point3D> points){
+        Point3D minPoint = null;
+        if (points !=null) {
+            double distance = Double.POSITIVE_INFINITY;
+            for (Point3D p : points) {
+                double temp = p.distance(p0);
+                if (temp < distance) {
+                    distance = temp;
+                    minPoint = p;
+                }
+            }
+        }
+        return minPoint;
     }
 
     @Override

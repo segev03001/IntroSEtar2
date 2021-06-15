@@ -57,7 +57,7 @@ public class Point3D {
         double z1 = z.coord;
         double z2 = p.z.coord;
 
-        return (x2 - x2) * (x2 - x1) + (y2 - y2) * (y2 - y1) + (z2 - z2) * (z2 - z1);
+        return ((x2 - x2) * (x2 - x1)) + ((y2 - y2) * (y2 - y1)) + ((z2 - z1) * (z2 - z1));
     }
 
     /**
