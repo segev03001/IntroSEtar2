@@ -1,16 +1,12 @@
 package elements;
 
-import Primitives.Point3D;
-import Primitives.Ray;
-import Primitives.Vector;
+import primitives.Point3D;
+import primitives.Vector;
 import geometries.Intersectable;
 import geometries.Plane;
 import geometries.Sphere;
 import geometries.Triangle;
 import org.junit.jupiter.api.Test;
-
-import java.util.LinkedList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

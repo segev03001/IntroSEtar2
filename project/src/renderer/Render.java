@@ -1,16 +1,14 @@
 package renderer;
 
 import elements.Camera;
-import Primitives.*;
-import scene.Scene;
+import primitives.*;
 
 import java.util.MissingResourceException;
 
 public class Render {
     ImageWriter imageWriter = null;
-    Scene scene = null;
     Camera camera = null;
-    RayTracerBase rayTracerBase = null;
+    BaseRayTracer rayTracerBase = null;
 
     public Render setImageWriter(ImageWriter imageWriter) {
         this.imageWriter = imageWriter;
@@ -22,13 +20,8 @@ public class Render {
         return this;
     }
 
-    public Render setRayTracer(RayTracerBase rayTracer) {
+    public Render setRayTracer(BaseRayTracer rayTracer) {
         this.rayTracerBase = rayTracer;
-        return this;
-    }
-
-    public Render setScene(Scene scene) {
-        this.scene = scene;
         return this;
     }
 
@@ -37,14 +30,11 @@ public class Render {
             if (this.imageWriter == null) {
                 throw new MissingResourceException("missing resource", ImageWriter.class.getName(), "");
             }
-            if (this.scene == null) {
-                throw new MissingResourceException("missing resource", Scene.class.getName(), "");
-            }
             if (this.camera == null) {
                 throw new MissingResourceException("missing resource", Camera.class.getName(), "");
             }
             if (this.rayTracerBase == null) {
-                throw new MissingResourceException("missing resource", RayTracerBase.class.getName(), "");
+                throw new MissingResourceException("missing resource", BaseRayTracer.class.getName(), "");
             }
 
             //rendering the image

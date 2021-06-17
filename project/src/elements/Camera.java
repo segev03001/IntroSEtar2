@@ -1,10 +1,10 @@
 package elements;
 
-import Primitives.Point3D;
-import Primitives.Ray;
-import Primitives.Vector;
+import primitives.Point3D;
+import primitives.Ray;
+import primitives.Vector;
 
-import static Primitives.Util.isZero;
+import static primitives.Util.isZero;
 
 public class Camera {
     final private Point3D p0;

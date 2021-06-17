@@ -1,27 +1,28 @@
 package geometries;
 
-import Primitives.Point3D;
-import Primitives.Ray;
-import Primitives.Vector;
+import primitives.Point3D;
+import primitives.Ray;
+import primitives.Vector;
 
 import java.util.List;
 
-import static Primitives.Util.alignZero;
-import static Primitives.Util.isZero;
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
 
 /**
  * basic geometric object for Sphere
  */
-public class Sphere extends RadialGeometry implements Geometry {
+public class Sphere extends Geometry {
 
-    Point3D center;
+    protected final Point3D center;
+    protected final double radius;
 
     /**
      * @param center Point3D
-     * @param radios double
+     * @param radius double
      */
-    public Sphere(double radios, Point3D center) {
-        super(radios);
+    public Sphere(double radius, Point3D center) {
+        this.radius = radius;
         this.center = center;
     }
 
@@ -37,7 +38,7 @@ public class Sphere extends RadialGeometry implements Geometry {
     }
 
     @Override
-    public List<Point3D> findIntersections(Ray ray) {
+    public List<GeoPoint> findGeoIntersections(Ray ray) {
         double tm;
         double d;
         if(ray.getP0().equals(center)) {
@@ -52,10 +53,10 @@ public class Sphere extends RadialGeometry implements Geometry {
         }
 
 
-        if (d > radius) {
+        if (d > this.radius) {
             return null;
         }
-        double th = alignZero(Math.sqrt(radius * radius - d * d));
+        double th = alignZero(Math.sqrt(this.radius * this.radius - d * d));
         if (isZero(th)) {
             return null;
         }
@@ -63,15 +64,15 @@ public class Sphere extends RadialGeometry implements Geometry {
         double t2 = alignZero(tm - th);
 
         if (t1 > 0 && t2 > 0) {
-            return List.of(ray.getPoint(t1), ray.getPoint(t2));
+            return List.of(new GeoPoint(this, ray.getPoint(t1)), new GeoPoint(this, ray.getPoint(t2)));
 
         }
         if (t1 > 0) {
-            return List.of(ray.getPoint(t1));
+            return List.of(new GeoPoint(this, ray.getPoint(t1)));
 
         }
         if (t2 > 0) {
-            return List.of(ray.getPoint(t2));
+            return List.of(new GeoPoint(this, ray.getPoint(t2)));
 
         }
         return null;

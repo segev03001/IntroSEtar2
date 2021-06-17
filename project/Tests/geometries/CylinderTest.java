@@ -1,8 +1,8 @@
 package geometries;
 
-import Primitives.Point3D;
-import Primitives.Ray;
-import Primitives.Vector;
+import primitives.Point3D;
+import primitives.Ray;
+import primitives.Vector;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CylinderTest {
 
     /**
-     * Test method for {@link geometries.Cylinder#getNormal(Primitives.Point3D)}.
+     * Test method for {@link geometries.Cylinder#getNormal(primitives.Point3D)}.
      */
     @Test
     void getNormal() {

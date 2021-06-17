@@ -1,8 +1,8 @@
 package geometries;
 
-import Primitives.Point3D;
-import Primitives.Ray;
-import Primitives.Vector;
+import primitives.Point3D;
+import primitives.Ray;
+import primitives.Vector;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

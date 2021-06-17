@@ -1,16 +1,17 @@
 package geometries;
 
-import Primitives.Point3D;
-import Primitives.Ray;
-import Primitives.Vector;
+import primitives.Point3D;
+import primitives.Ray;
+import primitives.Vector;
 
 import java.util.List;
 
 /**
  * basic geometric object for Sphere
  */
-public class Tube extends RadialGeometry implements Geometry{
+public class Tube extends Geometry{
     final Ray axisRay;
+    final double radius;
 
     /**
      *
@@ -18,7 +19,7 @@ public class Tube extends RadialGeometry implements Geometry{
      * @param radius double
      */
     public Tube(Ray axisRay, double radius) {
-        super(radius);
+        this.radius = radius;
         this.axisRay = axisRay;
     }
 
@@ -30,7 +31,7 @@ public class Tube extends RadialGeometry implements Geometry{
     public String toString() {
         return "Tube{" +
                 "axisRay=" + axisRay +
-                ", radius=" + radius +
+                ", radius=" + this.radius +
                 '}';
     }
 
@@ -47,7 +48,7 @@ public class Tube extends RadialGeometry implements Geometry{
     }
 
     @Override
-    public List<Point3D> findIntersections(Ray ray) {
+    public List<GeoPoint> findGeoIntersections(Ray ray) {
         return null;
     }
 }

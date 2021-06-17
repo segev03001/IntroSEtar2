@@ -1,6 +1,6 @@
 package renderer;
 
-import Primitives.Color;
+import primitives.Color;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

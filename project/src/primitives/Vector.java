@@ -1,10 +1,8 @@
-package Primitives;
+package primitives;
 
-import javax.naming.OperationNotSupportedException;
-import java.awt.color.ICC_ColorSpace;
 import java.util.Objects;
 
-import static Primitives.Point3D.ZERO;
+import static primitives.Point3D.ZERO;
 
 /**
  * basic geometric object for vector

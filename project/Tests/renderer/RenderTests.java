@@ -1,13 +1,10 @@
-package renderer.elements;
+package renderer;
 
 
 import elements.*;
 import geometries.*;
-import Primitives.*;
+import primitives.*;
 import org.junit.jupiter.api.Test;
-import renderer.ImageWriter;
-import renderer.RayTracerBasic;
-import renderer.Render;
 import scene.Scene;
 
 /**
@@ -44,7 +41,7 @@ public class RenderTests {
         Render render = new Render() //
                 .setImageWriter(imageWriter) //
                 .setCamera(camera) //
-                .setRayTracer(new RayTracerBasic(scene));
+                .setRayTracer(new BasicRayTracer(scene));
 
         render.renderImage();
         render.printGrid(100, new Color(java.awt.Color.YELLOW));
@@ -63,18 +60,21 @@ public class RenderTests {
         Scene scene = new Scene("Test scene")//
                 .setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), 0.2)); //
 
-        scene.geometries.add(new Sphere(50, new Point3D(0, 0, -100)),
-                new Triangle(new Point3D(-100, 0, -100), new Point3D(0, 100, -100), new Point3D(-100, 100, -100)), // up left
+        scene.geometries.add(new Sphere(50, new Point3D(0, 0, -100)) //
+                        .setEmission(new Color(java.awt.Color.CYAN)), //
+                new Triangle(new Point3D(-100, 0, -100), new Point3D(0, 100, -100), new Point3D(-100, 100, -100)) // up left
+                        .setEmission(new Color(java.awt.Color.GREEN)),
                 new Triangle(new Point3D(100, 0, -100), new Point3D(0, 100, -100), new Point3D(100, 100, -100)), // up right
-                new Triangle(new Point3D(-100, 0, -100), new Point3D(0, -100, -100), new Point3D(-100, -100, -100)), // down left
-                new Triangle(new Point3D(100, 0, -100), new Point3D(0, -100, -100), new Point3D(100, -100, -100))); // down right
+                new Triangle(new Point3D(-100, 0, -100), new Point3D(0, -100, -100), new Point3D(-100, -100, -100)) // down left
+                        .setEmission(new Color(java.awt.Color.RED)),
+                new Triangle(new Point3D(100, 0, -100), new Point3D(0, -100, -100), new Point3D(100, -100, -100)) // down right
+                        .setEmission(new Color(java.awt.Color.BLUE)));
 
         ImageWriter imageWriter = new ImageWriter("color render test", 1000, 1000);
         Render render = new Render() //
                 .setImageWriter(imageWriter) //
                 .setCamera(camera) //
-                .setRayTracer(new RayTracerBasic(scene))
-                .setScene(scene);
+                .setRayTracer(new BasicRayTracer(scene));
 
         render.renderImage();
         render.printGrid(100, new Color(java.awt.Color.WHITE));

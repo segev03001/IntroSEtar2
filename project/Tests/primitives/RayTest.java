@@ -1,4 +1,4 @@
-package Primitives;
+package primitives;
 
 import org.junit.jupiter.api.Test;
 

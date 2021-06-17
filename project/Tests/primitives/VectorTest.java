@@ -1,8 +1,8 @@
-package Primitives;
+package primitives;
 
 import org.junit.jupiter.api.Test;
 
-import static Primitives.Util.isZero;
+import static primitives.Util.isZero;
 import static java.lang.System.out;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -61,7 +61,7 @@ class VectorTest {
 
     /**
      * Test method for crossProduct
-     * {@link Primitives.Vector#crossProduct(Primitives.Vector)}.
+     * {@link primitives.Vector#crossProduct(primitives.Vector)}.
      */
     @Test
     void crossProduct() {

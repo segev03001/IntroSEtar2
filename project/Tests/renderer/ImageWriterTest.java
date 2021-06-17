@@ -1,9 +1,7 @@
 package renderer;
 
-import Primitives.Color;
+import primitives.Color;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ImageWriterTest {
 

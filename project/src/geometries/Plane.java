@@ -1,18 +1,18 @@
 package geometries;
 
-import Primitives.Point3D;
-import Primitives.Ray;
-import Primitives.Vector;
+import primitives.Point3D;
+import primitives.Ray;
+import primitives.Vector;
 
 import java.util.List;
 
-import static Primitives.Util.alignZero;
-import static Primitives.Util.isZero;
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
 
 /**
  * basic geometric object for Plane
  */
-public class Plane implements Geometry{
+public class Plane extends Geometry{
     final Point3D q0;
     final Vector normal;
 
@@ -65,7 +65,7 @@ public class Plane implements Geometry{
     }
 
     @Override
-    public List<Point3D> findIntersections(Ray ray) {
+    public List<GeoPoint> findGeoIntersections(Ray ray) {
         Point3D P0 = ray.getP0();
         Vector v = ray.getDir();
 
@@ -88,7 +88,7 @@ public class Plane implements Geometry{
         }
 
             Point3D p = ray.getPoint(t);
-            return  List.of(p);
+            return  List.of(new GeoPoint(this, p));
         }
     }
 

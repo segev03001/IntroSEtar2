@@ -1,6 +1,6 @@
 package geometries;
 
-import Primitives.*;
+import primitives.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -26,7 +26,7 @@ class SphereTest {
     }
 
     /**
-     * Test method for {@link geometries.Sphere#findIntersections(Primitives.Ray)}.
+     * Test method for {@link geometries.Sphere#findIntersections(primitives.Ray)}.
      */
     @Test
     public void testFindIntersections() {
