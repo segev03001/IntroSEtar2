@@ -20,10 +20,19 @@ public class Cylinder extends Tube{
        this.height = height;
     }
 
+    /**
+     * get height
+     * @return height
+     */
     public double getHeight() {
         return height;
     }
 
+    /**
+     * calculate the normal
+     * @param p point
+     * @return normal of the geometries
+     */
     @Override
     public Vector getNormal(Point3D p) {
         return super.getNormal(p);

@@ -81,14 +81,25 @@ public class Polygon extends Geometry {
         }
     }
 
+    /**
+     * get vector
+     * @param point Point3D
+     * @return vector
+     */
     @Override
     public Vector getNormal(Point3D point) {
         return plane.getNormal();
     }
 
+    /**
+     * Gives all the points where the given ray is intersecting with the object.
+     * @param ray A ray to check if is intersecting with the object
+     * @param maxDistance the max distance
+     * @return the intersections with the object
+     */
     @Override
-    public List<GeoPoint> findGeoIntersections(Ray ray) {
-        List<GeoPoint> result = plane.findGeoIntersections(ray);
+    public List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
+        List<GeoPoint> result = plane.findGeoIntersections(ray, maxDistance);
 
         if (result == null) {
             return null;

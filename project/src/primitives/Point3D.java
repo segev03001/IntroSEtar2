@@ -32,6 +32,11 @@ public class Point3D {
         this.z = new Coordinate(z);
     }
 
+    /**
+     * Check when the points are equal
+     * @param o Another point
+     * @return false if they are different and true if they are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,12 +45,17 @@ public class Point3D {
         return x.equals(point3D.x) && y.equals(point3D.y) && z.equals(point3D.z);
     }
 
+    /**
+     * hash function
+     * @return the hash number
+     */
     @Override
     public int hashCode() {
         return Objects.hash(x.coord, y.coord, z.coord);
     }
 
     /**
+     * calculate the distance between points by formula
      * @param p point for distance calculation
      * @return the distance between points by formula
      */

@@ -11,6 +11,7 @@ public class Vector {
     Point3D head;
 
     /**
+     * constructor
      * @param head point 3d
      */
     public Vector(Point3D head) {
@@ -18,6 +19,7 @@ public class Vector {
     }
 
     /**
+     * constructor by three coordinates
      * @param x coordinates for X axis
      * @param y coordinates for Y axis
      * @param z coordinates for Z axis
@@ -30,6 +32,7 @@ public class Vector {
     }
 
     /**
+     * constructor by three double
      * @param x coordinates for X axis
      * @param y coordinates for Y axis
      * @param z coordinates for Z axis
@@ -84,12 +87,22 @@ public class Vector {
                 head.z.coord * d);
     }
 
+    /**
+     * Makes a scalar product between vectors
+     * @param v vector
+     * @return scalar product
+     */
     public double dotProduct(Vector v) {
         return (head.x.coord * v.head.x.coord +
                 head.y.coord * v.head.y.coord +
                 head.z.coord * v.head.z.coord);
     }
 
+    /**
+     * Makes a vector product between vectors
+     * @param v vector
+     * @return vector product
+     */
     public Vector crossProduct(Vector v)  {
         Point3D newhead = new Point3D(
                 (head.y.coord * v.head.z.coord) - (head.z.coord * v.head.y.coord),
@@ -101,14 +114,26 @@ public class Vector {
         return new Vector(newhead);
     }
 
+    /**
+     * Calculate the length of the vector squared
+     * @return the length of the vector squared
+     */
     public double lengthSquared() {
         return ((head.x.coord * head.x.coord) + (head.y.coord * head.y.coord) + (head.z.coord * head.z.coord));
     }
 
+    /**
+     * Calculate the length of the vector
+     * @return the length of the vector
+     */
     public double length() {
         return Math.sqrt(lengthSquared());
     }
 
+    /**
+     * The vector normalization action that will change the vector itself
+     * @return Another vector is normalized
+     */
     public Vector normalize() {
         double x = head.x.coord;
         double y = head.y.coord;
@@ -119,10 +144,19 @@ public class Vector {
         return this;
     }
 
+    /**
+     * Normalization operation
+     * @return Returns a normalized new vector in the same direction as the original vector
+     */
     public Vector normalized() {
         return new Vector(this.normalize().head);
     }
 
+    /**
+     * Check when the vectors are equal
+     * @param o Another vector
+     * @return false if they are different and true if they are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -131,6 +165,10 @@ public class Vector {
         return head.equals(vector.head);
     }
 
+    /**
+     * hash function
+     * @return the hash number
+     */
     @Override
     public int hashCode() {
         return Objects.hash(head);

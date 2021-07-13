@@ -14,7 +14,7 @@ public class Tube extends Geometry{
     final double radius;
 
     /**
-     *
+     * constructor
      * @param axisRay Ray
      * @param radius double
      */
@@ -23,10 +23,18 @@ public class Tube extends Geometry{
         this.axisRay = axisRay;
     }
 
+    /**
+     * get ray
+     * @return axisRay
+     */
     public Ray getAxisRay() {
         return axisRay;
     }
 
+    /**
+     * make String
+     * @return"Tube{axisRay=" + axisRay + ", radius=" + this.radius + '}'
+     */
     @Override
     public String toString() {
         return "Tube{" +
@@ -35,6 +43,11 @@ public class Tube extends Geometry{
                 '}';
     }
 
+     /**
+     * calculate the normal
+     * @param p point
+     * @return normal of the geometries
+     */
     @Override
     public Vector getNormal(Point3D p) {
         Vector p_p0  = p.subtract(axisRay.getP0());
@@ -47,8 +60,14 @@ public class Tube extends Geometry{
         return N;
     }
 
+    /**
+     * Gives all the points where the given ray is intersecting with the object.
+     * @param ray A ray to check if is intersecting with the object
+     * @param maxDistance the max distance
+     * @return the intersections with the object
+     */
     @Override
-    public List<GeoPoint> findGeoIntersections(Ray ray) {
+    public List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
         return null;
     }
 }

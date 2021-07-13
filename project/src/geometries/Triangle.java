@@ -14,6 +14,10 @@ public class Triangle extends Polygon {
     Point3D p2;
     Point3D p3;
 
+    /**
+     * constructor with a list of three points
+     * @param vertices
+     */
     public Triangle(Point3D... vertices) {
         super(vertices);
         if (vertices.length != 3)
@@ -23,11 +27,22 @@ public class Triangle extends Polygon {
         p3 = vertices[2];
     }
 
+    /**
+     * calculate the normal
+     * @param p point
+     * @return normal of the geometries
+     */
+
     @Override
     public Vector getNormal(Point3D p) {
         return super.getNormal(p);
     }
 
+    /**
+     * Gives all the points where the given ray is intersecting with the object.
+     * @param ray A ray to check if is intersecting with the object.
+     * @return the intersections with the object
+     */
     @Override
     public List<Point3D> findIntersections(Ray ray) {
         return super.findIntersections(ray);
