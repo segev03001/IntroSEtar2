@@ -109,7 +109,10 @@ class generalTest {
 
     @Test
     public void generalTest3() {
-        scene.geometries.add( //
+        Scene scene3 = new Scene("Test general scene");
+        Camera camera3 = new Camera(new Point3D(0, 0, 1000), new Vector(0.14, 0, -1), new Vector(0, 1, 0))  //
+                .setViewPlaneSize(400, 400).setDistance(1000);
+        scene3.geometries.add( //
                 new Sphere(60, new Point3D(0, 0, -100)) //
                         .setEmission(new Color(java.awt.Color.RED)) //
                         .setMaterial(new Material().setKd(0.5).setkS(0.5).setShininess(30)), //
@@ -126,12 +129,12 @@ class generalTest {
 //        scene.lights.add( //
 //                new SpotLight(new Color(400, 240, 0), new Point3D(-100, -100, 200), new Vector(1, 1, -3)) //
 //                        .setKl(1E-5).setKq(1.5E-7));
-        scene.lights.add(new PointLight(new Color(java.awt.Color.white), new Point3D(-100, -100, 0)).setKl(1E-5).setKq(1.5E-7));
-        scene.lights.add(new PointLight(new Color(java.awt.Color.white), new Point3D(-100, 100, 0)).setKl(1E-5).setKq(1.5E-7));
+        scene3.lights.add(new PointLight(new Color(java.awt.Color.white), new Point3D(-100, -100, 0)).setKl(1E-5).setKq(1.5E-7));
+        scene3.lights.add(new PointLight(new Color(java.awt.Color.white), new Point3D(-100, 100, 0)).setKl(1E-5).setKq(1.5E-7));
         Render render = new Render(). //
                 setImageWriter(new ImageWriter("generalTest3", 1400, 1400)) //
-                .setCamera(camera) //
-                .setRayTracer(new BasicRayTracer(scene))
+                .setCamera(camera3) //
+                .setRayTracer(new BasicRayTracer(scene3))
                 .setMultithreading(4);
         render.renderImageSuperSampling(4);
         render.writeToImage();
